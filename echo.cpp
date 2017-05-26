@@ -1,6 +1,8 @@
 #include <echo.h>
 #include "Arduino.h"
 
+
+// returns: distance read from the sensor in millimeters
 unsigned ultrasonic_mm(int trig, int echo)
 {
   pinMode(trig, OUTPUT);
@@ -11,6 +13,12 @@ unsigned ultrasonic_mm(int trig, int echo)
   return (pulseIn(echo, HIGH, 1000000) * 10) / 58;
 }
 
+/*
+ * Make sure to wire the trigger and echo pins on the distance sensor
+ * together to whatever pin on the Arduino you decide to use
+ *
+ * returns: distance read from the sensor in millimeters
+ */
 unsigned ultrasonic1_mm(int pin)
 {
   pinMode(pin, OUTPUT);
